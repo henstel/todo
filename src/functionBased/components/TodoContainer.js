@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import Header from "./Header"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
+import TodoItem from "./TodoItem"
 import { v4 as uuidv4 } from "uuid"
 
 const TodoContainer = () => {
@@ -20,7 +21,7 @@ const TodoContainer = () => {
       })
     )
   }
-
+  
   const delTodo = id => {
     setTodos([
       ...todos.filter(todo => {
@@ -30,10 +31,15 @@ const TodoContainer = () => {
   }
 
   const addTodoItem = title => {
+    const current = new Date();
+    // you can use 'new Date().getTime()' to get unique number
+    const dat = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const newTodo = {
       id: uuidv4(),
       title: title,
       completed: false,
+      date: dat,
+      
     }
     setTodos([...todos, newTodo])
   }
@@ -62,6 +68,8 @@ const TodoContainer = () => {
     const temp = JSON.stringify(todos)
     localStorage.setItem("todos", temp)
   }, [todos])
+  
+  //console.log('TodoContainer:', todos)
   
   return (
     <div className="container">
