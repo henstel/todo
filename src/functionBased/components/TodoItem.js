@@ -21,7 +21,7 @@ const TodoItem = props => {
     textDecoration: "line-through",
   }
 
-  const { completed, id, title } = props.todo
+  const { completed, id, title, } = props.todo
 
   let viewMode = {}
   let editMode = {}
@@ -37,7 +37,14 @@ const TodoItem = props => {
       console.log("Cleaning up...")
     }
   }, [])
+
   
+  const current = new Date();
+   // you can use 'new Date().getTime()' to get unique number
+  const dat = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  const [date, setdate] = useState(dat)
+  console.log('Todoitem:', date, props.todo.id, title)
+  console.log('Todoitem-todo:', props.todo)
   return (
     <li className={styles.item}>
       <div onDoubleClick={handleEditing} style={viewMode}>
@@ -49,6 +56,7 @@ const TodoItem = props => {
         />
         <button onClick={() => props.deleteTodoProps(id)}>Delete</button>
         <span style={completed ? completedStyle : null}>{title}</span>
+        <span>  : Date created is {date} </span>
       </div>
       <input
         type="text"
@@ -60,6 +68,7 @@ const TodoItem = props => {
         }}
         onKeyDown={handleUpdatedDone}
       />
+      
     </li>
   )
 }
