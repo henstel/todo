@@ -22,7 +22,7 @@ const TodoItem = props => {
     textDecoration: "line-through",
   }
 
-  const { completed, id, title, } = props.todo
+  const { completed, id, title, date } = props.todo
 
   let viewMode = {}
   let editMode = {}
@@ -42,9 +42,10 @@ const TodoItem = props => {
   
   const current = new Date();
    // you can use 'new Date().getTime()' to get unique number
-  const dat = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-  const [date, setdate] = useState(dat)
-  console.log('Todoitem:', date, props.todo.id, title)
+  //const dat = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  //const [date, setdate] = useState(dat)
+  
+  console.log('Todoitema:', date, props.todo.id, title)
   console.log('Todoitem-todo:', props.todo)
   return (
     <li className={styles.item}>
@@ -58,9 +59,6 @@ const TodoItem = props => {
         <button onClick={() => props.deleteTodoProps(id)}>
           <FaTrash style={{ color: "orangered", fontSize: "16px" }} />
         </button>
-
-
-
         <span style={completed ? completedStyle : null}>{title}</span>
         <span>  : Date created is {date} </span>
       </div>
