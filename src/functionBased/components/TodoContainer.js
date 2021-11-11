@@ -69,7 +69,7 @@ const TodoContainer = () => {
     localStorage.setItem("todos", temp)
   }, [todos])
   
-  //console.log('TodoContainer:', todos)
+  console.log('TodoContainer:', todos)
   
   return (
     <div className="container">
