@@ -4,10 +4,11 @@ import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
 import TodoItem from "./TodoItem"
 import { v4 as uuidv4 } from "uuid"
-import { Route, Switch, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import About from "../pages/About"
 import NotMatch from "../pages/NotMatch"
 import Navbar from "./Navbar"
+import "../App.css"
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos())
@@ -94,9 +95,9 @@ const TodoContainer = () => {
           </div> }
         />
       
-        <Route path="/about" element={<About />} />
+        <Route path="/about/*" element={<About />} />
         <Route path="*" element={<NotMatch />} />
-          
+        
       </Routes>
     </>
   )
