@@ -1,6 +1,6 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
-
+import { NavLink, Outlet } from "react-router-dom"
+import "../App.css"
 const Navbar = () => {
     const links = [
         {
@@ -29,6 +29,7 @@ const Navbar = () => {
         })}
       </ul>
     </nav>
+    
   )
   
   
