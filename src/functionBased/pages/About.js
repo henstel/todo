@@ -1,10 +1,9 @@
 import React from "react"
-import { Link, useMatch, Route, Routes, Outlet, useParams } from "react-router-dom"
+import { Link, Route, Routes, Outlet, useParams } from "react-router-dom"
 import SinglePage from "./SinglePage"
 
 const About = () => { 
   const { slug } = useParams();
-  console.log('slug =', slug)
   
   return (
     <div>
