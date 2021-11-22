@@ -74,11 +74,10 @@ body {
   text-decoration: underline;
 }
 
+/* sidebar Nav */
+
 .navBar {
-  display: flex;
-  list-style-type: none;
-  background-color: #cccccc;
-  padding: 1rem;
+  position: relative;
 }
 
 .navBar button {
@@ -114,4 +113,9 @@ a {
   text-decoration: none;
   color: #3fffd2;
   text-transform: uppercase;
+  font-weight: bold;
+}
+
+.menuNav li:first-child {
+  margin-top: 7rem;
 }
